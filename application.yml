@@ -1,0 +1,57 @@
+proxy:
+  title: Open Analyrics Shiny Proxy
+  logo-url: http://www.openanalytics.eu/sites/www.openanalytics.eu/themes/oa/lo$
+  heartbeat-rate: 10000
+  heartbeat-timeout: 1800000
+  port: 8484
+  authentication: simple
+  admin-groups: admins
+  #Uzytkownicy
+  users:
+  - name: admin
+    password: admin
+    groups: admins
+  - name: admin
+    password: admin
+    groups: admins
+  - name: user2
+    password: user2
+    groups: scientists
+  - name: user3
+    password: user3
+    groups: scientists
+  - name: user4
+    password: user4
+    groups: scientists
+  - name: user5
+    password: user5
+    groups: scientists
+  - name: user6
+    password: user6
+    groups: scientists
+  - name: user7
+    password: user7
+    groups: scientists
+  - name: user8
+    password: user8
+    groups: scientists
+  - name: user9
+    password: user9
+    groups: scientists
+  - name: user10
+    password: user10
+    groups: scientists
+  #docker
+  docker:
+    internal-networking: true
+  specs:
+  - id: Test_ShinyProxy
+    display-name: Testowa aplikacja
+    description: Aplikacja dla 1 admina i 10 userow
+    container-cmd: ["R", "-e", "shiny::runApp('/root/euler')"]
+    container-image: image1
+    container-network: sp-example-net
+#log
+logging:
+  file:
+    shinyproxy.log
